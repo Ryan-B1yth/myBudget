@@ -3,33 +3,28 @@ import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
 import { updateTotalCapital } from '../../features/addCapital/addCapitalSlice';
 
-const HomeScreen = () => {
-  const [inputText, setInputText] = useState('Input amount');
-  const storage = useAppSelector(state => state);
-  const dispatch = useAppDispatch();
+import Dashboard from '../../components/dashboard/Dashboard';
+import Income from '../../components/income/Income';
 
-  // const date = new Date();
-  // const year = date.getUTCFullYear();
-  // const month = date.getUTCMonth() + 1;
-  // const day = date.getUTCDate();
-  // const hour = date.getUTCHours();
-  // const minute = date.getUTCMinutes();
-  // const second = date.getUTCSeconds();
-  // const dateStamp = `${year}-${month}-${day}-${hour}-${minute}-${second}`;
+const HomeScreen = ({ navigation }: any) => {
+  const [inputText, setInputText] = useState('Input amount');
+  const dispatch = useAppDispatch();
 
   return (
     <View>
+      <Dashboard navigation={navigation} />
+      <Income navigation={navigation} />
       <View>
-        <Text>{storage.userInfo.totalCapital}</Text>
-        <TextInput
+        {/* <TextInput
           onChangeText={setInputText}
           placeholder="Input amount"
           value={inputText}
+          keyboardType="numeric"
         />
         <Pressable
-          onPress={() => dispatch(updateTotalCapital(parseInt(inputText)))}>
+          onPress={() => dispatch(updateTotalCapital(Number(inputText)))}>
           <Text>Submit</Text>
-        </Pressable>
+        </Pressable> */}
       </View>
     </View>
   );

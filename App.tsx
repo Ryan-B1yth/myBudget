@@ -13,17 +13,21 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 import HomeScreen from './src/screens/home/HomeScreen';
 import { store } from './src/features/app/store';
 import { persistor } from './src/features/app/store';
+import Router from './src/navigation/Router';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor} loading={null}>
-        <SafeAreaView>
-          <StatusBar />
-          <HomeScreen />
-        </SafeAreaView>
-      </PersistGate>
-    </Provider>
+    <NavigationContainer>
+      <Provider store={store}>
+        <PersistGate persistor={persistor} loading={null}>
+          <SafeAreaView style={{ flex: 1 }}>
+            <StatusBar />
+            <Router />
+          </SafeAreaView>
+        </PersistGate>
+      </Provider>
+    </NavigationContainer>
   );
 };
 

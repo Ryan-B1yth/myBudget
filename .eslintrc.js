@@ -8,8 +8,10 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       rules: {
         '@typescript-eslint/no-shadow': ['error'],
+        '@typescript-eslint/no-explicit-any': 'off',
         'no-shadow': 'off',
         'no-undef': 'off',
+        'no-explicit-any': 'off',
       },
     },
   ],
