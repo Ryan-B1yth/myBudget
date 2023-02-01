@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Dimensions,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -23,7 +24,13 @@ const App = () => {
         <PersistGate persistor={persistor} loading={null}>
           <SafeAreaView style={{ flex: 1 }}>
             <StatusBar />
-            <Router />
+            <View
+              style={{
+                height: Dimensions.get('window').height,
+                backgroundColor: 'red',
+              }}>
+              <Router />
+            </View>
           </SafeAreaView>
         </PersistGate>
       </Provider>

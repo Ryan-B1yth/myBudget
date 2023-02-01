@@ -99,9 +99,12 @@ const updateUserInfo = createSlice({
     updateTotalCapital: (state, action: PayloadAction<number>) => {
       state.totalCapital = action.payload;
     },
+    updateIncome: (state, action: PayloadAction<{}>) => {
+      console.warn(action.payload);
+    },
   },
 });
 
-export const { updateTotalCapital } = updateUserInfo.actions;
+export const { updateTotalCapital, updateIncome } = updateUserInfo.actions;
 
 export default updateUserInfo.reducer;

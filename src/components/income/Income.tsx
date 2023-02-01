@@ -1,6 +1,7 @@
-import { View, Text, Pressable } from 'react-native';
+import { View, Text } from 'react-native';
 import React from 'react';
 import { useAppSelector } from '../../features/app/hooks';
+import ButtonSmall from '../btnSmall/ButtonSmall';
 import styles from './styles';
 
 const Income = ({ navigation }: any) => {
@@ -15,16 +16,12 @@ const Income = ({ navigation }: any) => {
         </Text>
       </View>
       <View style={styles.actions}>
-        <Pressable
-          style={({ pressed }) =>
-            pressed ? [styles.btn, styles.btnPressed] : styles.btn
-          }
-          onPress={() => navigation.navigate('AddIncomeScreen')}>
-          <Text style={styles.btnText}>Edit</Text>
-        </Pressable>
-        <Pressable style={styles.btn}>
-          <Text style={styles.btnText}>Add</Text>
-        </Pressable>
+        <ButtonSmall
+          title={'Edit'}
+          navigation={navigation}
+          destination={'AddIncomeScreen'}
+        />
+        <ButtonSmall title={'Add'} />
       </View>
     </View>
   );

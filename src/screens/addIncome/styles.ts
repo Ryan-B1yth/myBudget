@@ -1,10 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+import { Layouts, Generics } from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
+    height: '100%',
     // justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
   },
   mainTitle: {
     fontSize: 20,
@@ -12,23 +13,10 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   btn: {
-    width: '40%',
-    backgroundColor: '#ffffff',
-    height: 30,
-    alignContent: 'center',
-    justifyContent: 'center',
-  },
-  btnText: {
-    textAlign: 'center',
+    ...Generics.btn,
   },
   btnPressed: {
-    backgroundColor: '#bbbbbb',
-  },
-  stuckBottom: {
-    alignItems: 'center',
-    width: '100%',
-    position: 'absolute',
-    bottom: 20,
+    ...Generics.btnPressed,
   },
 });
 
