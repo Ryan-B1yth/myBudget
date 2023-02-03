@@ -1,16 +1,10 @@
-import { View, Text, TextInput, Pressable, Dimensions } from 'react-native';
-import React, { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
-import { updateTotalCapital } from '../../features/addCapital/addCapitalSlice';
+import React from 'react';
+import { Dimensions, View } from 'react-native';
 
 import Dashboard from '../../components/Dashboard/Dashboard';
-import Income from '../../components/Income/Income';
-import { Layouts } from '../../../src/styles';
+import Income from '../../components/IncomeView/IncomeView';
 
 const HomeScreen = ({ navigation }: any) => {
-  const [inputText, setInputText] = useState('Input amount');
-  const dispatch = useAppDispatch();
-
   return (
     <View style={{ height: Dimensions.get('window').height }}>
       <Dashboard navigation={navigation} />

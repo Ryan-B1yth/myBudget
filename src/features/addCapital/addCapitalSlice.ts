@@ -101,8 +101,9 @@ const updateUserInfo = createSlice({
     },
     updateIncome: (
       state,
-      action: PayloadAction<{ incomeAmount; incomeDate }>,
+      action: PayloadAction<{ incomeName; incomeAmount; incomeDate }>,
     ) => {
+      state.income[0].name = action.payload.incomeName;
       state.income[0].amount = action.payload.incomeAmount;
       state.income[0].dateOfPayment = action.payload.incomeDate;
     },

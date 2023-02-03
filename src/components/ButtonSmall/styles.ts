@@ -5,9 +5,10 @@ const styles: Record<string, ViewStyle | TextStyle> = StyleSheet.create({
   btnSmall: {
     width: '40%',
     backgroundColor: Colors.Primary.green.light,
-    height: 30,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 5,
   },
   btnSmallText: {
     textAlign: 'center',

@@ -9,7 +9,7 @@ interface Props {
   destination?: string;
   navigation?: any;
   action?: any;
-  data?: { incomeAmount: number; incomeDate: number };
+  data?: { incomeName: string; incomeAmount: number; incomeDate: number };
 }
 
 const BottomButton = ({ title, navigation, destination, data }: Props) => {
