@@ -1,12 +1,10 @@
 import { View, Text, TextInput } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { useAppSelector } from '../../features/app/hooks';
 import styles from './styles';
 
-const DateInput = ({ title, retreiveData }: any) => {
+const DateInput = ({ title, incomeDate, setIncomeDate }: any) => {
   const userInfo = useAppSelector(state => state).userInfo;
-
-  // const [inputText, setInputText] = useState('');
 
   return (
     <View style={styles.container}>
@@ -15,8 +13,8 @@ const DateInput = ({ title, retreiveData }: any) => {
         placeholder={`${userInfo.income[0].dateOfPayment}`}
         style={styles.defaultTextInput}
         keyboardType="numeric"
-        // onChangeText={setInputText}
-        // value={inputText}
+        onChangeText={setIncomeDate}
+        value={incomeDate}
       />
     </View>
   );

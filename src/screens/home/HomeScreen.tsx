@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
 import { updateTotalCapital } from '../../features/addCapital/addCapitalSlice';
 
-import Dashboard from '../../components/dashboard/Dashboard';
-import Income from '../../components/income/Income';
+import Dashboard from '../../components/Dashboard/Dashboard';
+import Income from '../../components/Income/Income';
 import { Layouts } from '../../../src/styles';
 
 const HomeScreen = ({ navigation }: any) => {

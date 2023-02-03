@@ -1,16 +1,20 @@
 import { View, Text, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import styles from './styles';
+import { updateIncome } from '../../features/addCapital/addCapitalSlice';
+import { useAppDispatch } from '../../features/app/hooks';
 
 interface Props {
   title: string;
   destination?: string;
   navigation?: any;
   action?: any;
-  // handler: any;
+  data?: { incomeAmount: number; incomeDate: number };
 }
 
-const BottomButton = ({ title, navigation, destination }: Props) => {
+const BottomButton = ({ title, navigation, destination, data }: Props) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Pressable
       style={({ pressed }) =>
@@ -32,6 +36,7 @@ const BottomButton = ({ title, navigation, destination }: Props) => {
         )
       }
       onPress={() => {
+        dispatch(updateIncome(data));
         destination ? navigation.navigate(destination) : null;
       }}
     />

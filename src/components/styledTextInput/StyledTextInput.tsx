@@ -3,22 +3,18 @@ import React, { useState } from 'react';
 import styles from './styles';
 import { useAppSelector } from '../../features/app/hooks';
 
-const StyledTextInput = ({ title, retreiveData }: any) => {
+const StyledTextInput = ({ title, incomeAmount, setIncomeAmount }: any) => {
   const userInfo = useAppSelector(state => state).userInfo;
-
-  const [inputText, setInputText] = useState('');
-
-  retreiveData(inputText);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <TextInput
-        placeholder={`£${userInfo.income[0].amount.toFixed(2)}`}
+        placeholder={`£${userInfo.income[0].amount}`}
         style={styles.defaultTextInput}
         keyboardType="numeric"
-        onChangeText={setInputText}
-        value={inputText}
+        onChangeText={setIncomeAmount}
+        value={incomeAmount}
       />
     </View>
   );

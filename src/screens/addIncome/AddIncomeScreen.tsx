@@ -1,26 +1,37 @@
 import { View, Text } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 
-import StyledTextInput from '../../components/styledTextInput/StyledTextInput';
-import DateInput from '../../components/dateInput/DateInput';
+import StyledTextInput from '../../components/StyledTextInput/StyledTextInput';
+import DateInput from '../../components/DateInput/DateInput';
 import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
-import BottomButton from '../../components/bottomButton/BottomButton';
+import BottomButton from '../../components/BottomButton/BottomButton';
 import styles from './styles';
-import { updateIncome } from '../../features/addCapital/addCapitalSlice';
 
 const AddIncomeScreen = ({ navigation }) => {
   const userInfo = useAppSelector(state => state).userInfo;
-  const dispatch = useAppDispatch();
+  const [incomeAmount, setIncomeAmount] = useState(userInfo.income[0].amount);
+  const [incomeDate, setIncomeDate] = useState(
+    userInfo.income[0].dateOfPayment,
+  );
 
   return (
     <View style={styles.container}>
       <Text style={styles.mainTitle}>{userInfo.income[0].name}</Text>
-      <StyledTextInput title={'Change income'} />
-      <DateInput title={'Select date'} />
+      <StyledTextInput
+        title={'Change income'}
+        value={incomeAmount}
+        setIncomeAmount={setIncomeAmount}
+      />
+      <DateInput
+        title={'Select date'}
+        value={incomeDate}
+        setIncomeDate={setIncomeDate}
+      />
       <BottomButton
         title={'Submit'}
         navigation={navigation}
         destination={'HomeScreen'}
+        data={{ incomeAmount: incomeAmount, incomeDate: incomeDate }}
       />
     </View>
   );

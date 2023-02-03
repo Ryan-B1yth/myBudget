@@ -27,7 +27,6 @@ const App = () => {
             <View
               style={{
                 height: Dimensions.get('window').height,
-                backgroundColor: 'red',
               }}>
               <Router />
             </View>
