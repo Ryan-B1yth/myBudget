@@ -1,6 +1,8 @@
-import { View, Text, Pressable } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
+import { Pressable, Text } from 'react-native';
+
 import styles from './styles';
+
 import { updateIncome } from '../../features/addCapital/addCapitalSlice';
 import { useAppDispatch } from '../../features/app/hooks';
 

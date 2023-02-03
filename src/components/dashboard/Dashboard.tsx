@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet, Pressable } from 'react-native';
 import React from 'react';
-import { useAppSelector } from '../../features/app/hooks';
-import { useNavigation } from '@react-navigation/native';
+import { Pressable, Text, View } from 'react-native';
 
 import styles from './styles';
 
-const Dashboard = ({ navigation }: any) => {
+import { useAppSelector } from '../../features/app/hooks';
+
+const Dashboard = () => {
   const userInfo = useAppSelector(state => state).userInfo;
 
   const allAccounts = () => {

@@ -1,6 +1,8 @@
-import { View, TextInput, Text } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
+import { Text, TextInput, View } from 'react-native';
+
 import styles from './styles';
+
 import { useAppSelector } from '../../features/app/hooks';
 
 const StyledTextInput = ({ title, incomeAmount, setIncomeAmount }: any) => {

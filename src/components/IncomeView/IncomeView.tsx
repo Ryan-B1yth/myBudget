@@ -3,10 +3,10 @@ import { Text, View } from 'react-native';
 
 import styles from './styles';
 
+import { ButtonSmall } from '../';
 import { useAppSelector } from '../../features/app/hooks';
-import ButtonSmall from '../ButtonSmall/ButtonSmall';
 
-const Income = ({ navigation }: any) => {
+const IncomeView = ({ navigation }: any) => {
   const userInfo = useAppSelector(state => state).userInfo;
 
   return (
@@ -29,4 +29,4 @@ const Income = ({ navigation }: any) => {
   );
 };
 
-export default Income;
+export default IncomeView;
