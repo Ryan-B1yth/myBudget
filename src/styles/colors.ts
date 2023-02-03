@@ -1,7 +1,8 @@
 const Colors = {
   Primary: {
     green: {
-      light: '#8AB0AB',
+      lighter: '#EBF5DF',
+      light: '#BAD4AA',
       dark: '#26413C',
       darker: '#03120E',
     },
@@ -10,7 +11,15 @@ const Colors = {
       light: '#EAEAEA',
     },
     brown: {
+      light: '#D4D4AA',
       main: '#1A1D1A',
+    },
+    blue: {
+      main: '#8AB0AB',
+    },
+    orange: {
+      light: '#EDB458',
+      dark: '#E8871E',
     },
   },
 };

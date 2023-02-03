@@ -1,14 +1,18 @@
 import React from 'react';
-import { Dimensions, View } from 'react-native';
+import { Dimensions, ScrollView, View } from 'react-native';
 
-import Dashboard from '../../components/Dashboard/Dashboard';
-import Income from '../../components/IncomeView/IncomeView';
+import { Dashboard } from '../../components';
+import { IncomeView } from '../../components';
+import { ExpenseView } from '../../components';
 
 const HomeScreen = ({ navigation }: any) => {
   return (
-    <View style={{ height: Dimensions.get('window').height }}>
-      <Dashboard navigation={navigation} />
-      <Income navigation={navigation} />
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false}>
+      <Dashboard />
+      <IncomeView navigation={navigation} />
+      <ExpenseView />
       <View>
         {/* <TextInput
           onChangeText={setInputText}
@@ -21,7 +25,7 @@ const HomeScreen = ({ navigation }: any) => {
           <Text>Submit</Text>
         </Pressable> */}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

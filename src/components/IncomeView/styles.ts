@@ -1,11 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { Dimensions } from 'react-native';
 
+import { Colors } from '../../styles';
+
 const styles = StyleSheet.create({
   container: {
     height: Dimensions.get('window').height / 3,
     width: '100%',
-    backgroundColor: '#dddddd',
+    backgroundColor: Colors.Primary.orange.light,
   },
   mainAccountContainer: {
     height: '70%',
@@ -18,19 +20,6 @@ const styles = StyleSheet.create({
   actions: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-  },
-  btn: {
-    width: '40%',
-    backgroundColor: '#ffffff',
-    height: 30,
-    alignContent: 'center',
-    justifyContent: 'center',
-  },
-  btnText: {
-    textAlign: 'center',
-  },
-  btnPressed: {
-    backgroundColor: '#bbbbbb',
   },
 });
 

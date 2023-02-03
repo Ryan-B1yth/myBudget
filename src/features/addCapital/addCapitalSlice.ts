@@ -1,4 +1,20 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
+
+export enum PaymentFrequency {
+  weekly,
+  monthly,
+}
+
+enum PaymentDay {
+  monday,
+  tuesday,
+  wednesday,
+  thursday,
+  friday,
+  saturday,
+  sunday,
+}
 
 interface Spending {
   week: number;
@@ -20,18 +36,13 @@ interface Accounts {
   spending: Spending;
 }
 
-interface Income {
+interface ChangeInCapital {
   id: number;
   name: string;
   amount: number;
-  dateOfPayment: number;
-}
-
-interface Expenses {
-  id: number;
-  name: string;
-  amount: number;
-  dateOfPayment: number;
+  frequency: PaymentFrequency;
+  dateOfPayment?: number;
+  dayOfPayment?: PaymentDay;
 }
 
 interface UserInfo {
@@ -39,8 +50,8 @@ interface UserInfo {
   accounts: Accounts[];
   totalSpending: Spending;
   totalCapital: number;
-  income: Income[];
-  expenses: Expenses[];
+  income: ChangeInCapital[];
+  expenses: ChangeInCapital[];
 }
 
 const initialState: UserInfo = {
@@ -79,6 +90,7 @@ const initialState: UserInfo = {
       id: 0,
       name: 'MainIncome',
       amount: 0,
+      frequency: PaymentFrequency.monthly,
       dateOfPayment: 31,
     },
   ],
@@ -87,6 +99,7 @@ const initialState: UserInfo = {
       id: 0,
       name: 'MainExpense',
       amount: 0,
+      frequency: PaymentFrequency.monthly,
       dateOfPayment: 31,
     },
   ],
@@ -106,6 +119,19 @@ const updateUserInfo = createSlice({
       state.income[0].name = action.payload.incomeName;
       state.income[0].amount = action.payload.incomeAmount;
       state.income[0].dateOfPayment = action.payload.incomeDate;
+    },
+    addExpense: (
+      state,
+      action: PayloadAction<{
+        id;
+        name;
+        amount;
+        frequency;
+        dateOfPayment?;
+        dayOfPayment?;
+      }>,
+    ) => {
+      state.expenses.push(action.payload);
     },
   },
 });

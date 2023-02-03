@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { Dimensions } from 'react-native';
 
+import { Colors } from '../../styles';
+
 const styles = StyleSheet.create({
   container: {
     width: '100%',
@@ -10,6 +12,7 @@ const styles = StyleSheet.create({
     height: '50%',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: Colors.Primary.blue.main,
   },
   title: {},
   mainValue: {
@@ -20,6 +23,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     height: '50%',
+    backgroundColor: Colors.Primary.green.lighter,
   },
 });
 

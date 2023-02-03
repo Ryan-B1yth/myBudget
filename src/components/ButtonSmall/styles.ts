@@ -1,10 +1,11 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+
 import { Colors } from '../../styles';
 
 const styles: Record<string, ViewStyle | TextStyle> = StyleSheet.create({
   btnSmall: {
     width: '40%',
-    backgroundColor: Colors.Primary.green.light,
+    backgroundColor: Colors.Primary.grey.light,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
