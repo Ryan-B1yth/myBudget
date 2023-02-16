@@ -1,7 +1,8 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from '../screens/home/HomeScreen';
-import AddIncomeScreen from '../screens/addIncome/AddIncomeScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+
+import { AddExpenseScreen, AddIncomeScreen, HomeScreen } from '../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,13 @@ const Router = () => {
       <Stack.Screen
         name={'AddIncomeScreen'}
         component={AddIncomeScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name={'AddExpenseScreen'}
+        component={AddExpenseScreen}
         options={{
           headerShown: false,
         }}

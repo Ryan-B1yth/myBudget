@@ -12,7 +12,7 @@ const HomeScreen = ({ navigation }: any) => {
       showsHorizontalScrollIndicator={false}>
       <Dashboard />
       <IncomeView navigation={navigation} />
-      <ExpenseView />
+      <ExpenseView navigation={navigation} />
       <View>
         {/* <TextInput
           onChangeText={setInputText}
