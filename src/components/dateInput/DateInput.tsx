@@ -5,18 +5,30 @@ import styles from './styles';
 
 import { useAppSelector } from '../../features/app/hooks';
 
-const DateInput = ({ title, incomeDate, setIncomeDate }: any) => {
+interface Props {
+  title: string;
+  passedValue: string | number | any;
+  setPassedValue: any;
+  placeholder: string | number;
+}
+
+const DateInput = ({
+  title,
+  passedValue,
+  setPassedValue,
+  placeholder,
+}: Props) => {
   const userInfo = useAppSelector(state => state).userInfo;
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <TextInput
-        placeholder={`${userInfo.income[0].dateOfPayment}`}
+        placeholder={`${placeholder}`}
         style={styles.defaultTextInput}
         keyboardType="numeric"
-        onChangeText={setIncomeDate}
-        value={incomeDate}
+        onChangeText={setPassedValue}
+        value={passedValue}
       />
     </View>
   );

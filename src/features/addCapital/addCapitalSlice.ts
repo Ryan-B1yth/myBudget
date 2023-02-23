@@ -1,19 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
 
 export enum PaymentFrequency {
   weekly,
   monthly,
 }
 
-enum PaymentDay {
-  monday,
-  tuesday,
-  wednesday,
-  thursday,
-  friday,
-  saturday,
-  sunday,
+export enum PaymentDay {
+  monday = 'Monday',
+  tuesday = 'Tuesday',
+  wednesday = 'Wednesday',
+  thursday = 'Thursday',
+  friday = 'Friday',
+  saturday = 'Saturday',
+  sunday = 'Sunday',
 }
 
 interface Spending {
@@ -120,22 +119,13 @@ const updateUserInfo = createSlice({
       state.income[0].amount = action.payload.incomeAmount;
       state.income[0].dateOfPayment = action.payload.incomeDate;
     },
-    addExpense: (
-      state,
-      action: PayloadAction<{
-        id;
-        name;
-        amount;
-        frequency;
-        dateOfPayment?;
-        dayOfPayment?;
-      }>,
-    ) => {
+    addExpense: (state, action: PayloadAction<ChangeInCapital>) => {
       state.expenses.push(action.payload);
     },
   },
 });
 
-export const { updateTotalCapital, updateIncome } = updateUserInfo.actions;
+export const { updateTotalCapital, updateIncome, addExpense } =
+  updateUserInfo.actions;
 
 export default updateUserInfo.reducer;

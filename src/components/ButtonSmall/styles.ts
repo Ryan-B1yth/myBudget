@@ -5,7 +5,7 @@ import { Colors } from '../../styles';
 const styles: Record<string, ViewStyle | TextStyle> = StyleSheet.create({
   btnSmall: {
     width: '40%',
-    backgroundColor: Colors.Primary.grey.light,
+    backgroundColor: Colors.Primary.grey.lighter,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',

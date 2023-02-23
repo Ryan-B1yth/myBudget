@@ -8,7 +8,8 @@ const Colors = {
     },
     grey: {
       main: '#3E505B',
-      light: '#EAEAEA',
+      light: '#AAAAAA',
+      lighter: '#EAEAEA',
     },
     brown: {
       light: '#D4D4AA',

@@ -1,5 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { Layouts, Generics } from '../../styles';
+
+import { Generics, Layouts } from '../../styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,6 +12,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     marginVertical: 20,
+    width: '100%',
+    textAlign: 'center',
   },
   btn: {
     ...Generics.btn,

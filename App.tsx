@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { Dimensions, SafeAreaView, StatusBar, View } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { LogBox } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
@@ -19,12 +19,7 @@ const App = () => {
         <PersistGate persistor={persistor} loading={null}>
           <SafeAreaView style={{ flex: 1 }}>
             <StatusBar />
-            <View
-              style={{
-                height: Dimensions.get('window').height,
-              }}>
-              <Router />
-            </View>
+            <Router />
           </SafeAreaView>
         </PersistGate>
       </Provider>

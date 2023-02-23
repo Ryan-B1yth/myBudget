@@ -1,17 +1,9 @@
-import { BottomButton } from './BottomButton';
-import { ButtonSmall } from './ButtonSmall';
-import { Dashboard } from './Dashboard';
-import { Expense } from './Expense';
-import { ExpenseView } from './ExpenseView';
-import { IncomeView } from './IncomeView';
-import { StyledTextInput } from './StyledTextInput';
-
-export {
-  BottomButton,
-  ButtonSmall,
-  Dashboard,
-  ExpenseView,
-  Expense,
-  IncomeView,
-  StyledTextInput,
-};
+export { BottomButton } from './BottomButton';
+export { ButtonSmall } from './ButtonSmall';
+export { Dashboard } from './Dashboard';
+export { Expense } from './Expense';
+export { ExpenseView } from './ExpenseView';
+export { HorizontalView } from './HorizontalView';
+export { IncomeView } from './IncomeView';
+export { SelectBox } from './SelectBox';
+export { StyledNumberInput } from './StyledNumberInput';

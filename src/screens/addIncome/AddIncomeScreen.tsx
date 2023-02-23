@@ -5,7 +5,7 @@ import styles from './styles';
 
 import BottomButton from '../../components/BottomButton/BottomButton';
 import DateInput from '../../components/DateInput/DateInput';
-import StyledTextInput from '../../components/StyledTextInput/StyledTextInput';
+import StyledNumberInput from '../../components/StyledNumberInput/StyledNumberInput';
 import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
 
 const AddIncomeScreen = ({ navigation }) => {
@@ -23,15 +23,18 @@ const AddIncomeScreen = ({ navigation }) => {
         value={incomeName}
         onChangeText={setIncomeName}
       />
-      <StyledTextInput
+      <StyledNumberInput
         title={'Change income'}
-        value={incomeAmount}
-        setIncomeAmount={setIncomeAmount}
+        passedValue={incomeAmount}
+        setPassedValue={setIncomeAmount}
+        placeholder={userInfo.income[0].amount}
+        unit={'£'}
       />
       <DateInput
         title={'Select date'}
-        value={incomeDate}
-        setIncomeDate={setIncomeDate}
+        passedValue={incomeDate}
+        setPassedValue={setIncomeDate}
+        placeholder={31}
       />
       <BottomButton
         title={'Submit'}

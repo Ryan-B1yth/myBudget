@@ -1,16 +1,23 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+
 import { Colors } from '../../styles';
 
 const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 20,
+  },
   btnStuckBottom: {
     backgroundColor: Colors.Primary.green.light,
     color: Colors.Primary.green.dark,
-    position: 'absolute',
+    // position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
     width: '85%',
-    bottom: 100,
+    // bottom: 100,
     borderRadius: 5,
   },
   btnStuckBottomPressed: {

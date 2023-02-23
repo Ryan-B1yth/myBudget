@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Text } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
 import styles from './styles';
 
@@ -11,37 +11,45 @@ interface Props {
   destination?: string;
   navigation?: any;
   action?: any;
-  data?: { incomeName: string; incomeAmount: number; incomeDate: number };
+  data?: any;
 }
 
-const BottomButton = ({ title, navigation, destination, data }: Props) => {
+const BottomButton = ({
+  title,
+  navigation,
+  destination,
+  action,
+  data,
+}: Props) => {
   const dispatch = useAppDispatch();
 
   return (
-    <Pressable
-      style={({ pressed }) =>
-        pressed
-          ? [styles.btnStuckBottom, styles.btnStuckBottomPressed]
-          : styles.btnStuckBottom
-      }
-      children={({ pressed }) =>
-        pressed ? (
-          <Text
-            style={[
-              styles.btnStuckBottomText,
-              styles.btnStuckBottomTextPressed,
-            ]}>
-            {title}
-          </Text>
-        ) : (
-          <Text style={styles.btnStuckBottomText}>{title}</Text>
-        )
-      }
-      onPress={() => {
-        dispatch(updateIncome(data));
-        destination ? navigation.navigate(destination) : null;
-      }}
-    />
+    <View style={styles.container}>
+      <Pressable
+        style={({ pressed }) =>
+          pressed
+            ? [styles.btnStuckBottom, styles.btnStuckBottomPressed]
+            : styles.btnStuckBottom
+        }
+        children={({ pressed }) =>
+          pressed ? (
+            <Text
+              style={[
+                styles.btnStuckBottomText,
+                styles.btnStuckBottomTextPressed,
+              ]}>
+              {title}
+            </Text>
+          ) : (
+            <Text style={styles.btnStuckBottomText}>{title}</Text>
+          )
+        }
+        onPress={() => {
+          dispatch(action(data));
+          destination ? navigation.navigate(destination) : null;
+        }}
+      />
+    </View>
   );
 };
 
