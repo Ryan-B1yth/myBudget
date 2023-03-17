@@ -4,7 +4,7 @@ import { FlatList, Pressable, Text, View } from 'react-native';
 import styles from './styles';
 
 import { Expense } from '../';
-import { useAppSelector } from '../../features/app/hooks';
+import { useAppSelector } from '../../store/app/hooks';
 
 const ExpenseView = ({ navigation }) => {
   const userInfo = useAppSelector(state => state).userInfo;
@@ -16,11 +16,11 @@ const ExpenseView = ({ navigation }) => {
           <Text style={styles.title}>Expenses</Text>
         </Pressable>
       </View>
-      <FlatList
+      {/* <FlatList
         nestedScrollEnabled
         data={userInfo.expenses}
         renderItem={({ item }) => <Expense item={item} />}
-      />
+      /> */}
     </View>
   );
 };

@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 
 import styles from './styles';
 
-import { PaymentFrequency } from '../../features/addCapital/addCapitalSlice';
+import { PaymentFrequency } from '../../store/addCapital/addCapitalSlice';
 
 const Expense = ({ item }) => {
   return (

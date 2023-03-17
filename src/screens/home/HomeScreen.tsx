@@ -1,11 +1,16 @@
 import React from 'react';
 import { Dimensions, ScrollView, View } from 'react-native';
 
-import { Dashboard } from '../../components';
-import { IncomeView } from '../../components';
-import { ExpenseView } from '../../components';
+import { Dashboard, ExpenseView, IncomeView } from '../../components';
+
+const getData = async () => {
+  const response = await fetch('/');
+  console.log(response);
+  return response;
+};
 
 const HomeScreen = ({ navigation }: any) => {
+  // getData();
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}

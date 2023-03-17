@@ -5,11 +5,12 @@ import { LogBox } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 
-import { store } from './src/features/app/store';
-import { persistor } from './src/features/app/store';
 import Router from './src/navigation/Router';
+import { store } from './src/store/app/store';
+import { persistor } from './src/store/app/store';
 
 const App = () => {
+  // console.warn(usersCollection);
   // TODO fix this implementation - causes incosistent scroll behavior
   LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
 

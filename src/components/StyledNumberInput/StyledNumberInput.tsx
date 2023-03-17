@@ -3,7 +3,7 @@ import { Text, TextInput, View } from 'react-native';
 
 import styles from './styles';
 
-import { useAppSelector } from '../../features/app/hooks';
+import { useAppSelector } from '../../store/app/hooks';
 
 interface Props {
   title: string;

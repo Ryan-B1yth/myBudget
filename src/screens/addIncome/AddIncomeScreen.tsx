@@ -1,20 +1,40 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
+import Config from 'react-native-config';
 
 import styles from './styles';
 
 import BottomButton from '../../components/BottomButton/BottomButton';
 import DateInput from '../../components/DateInput/DateInput';
 import StyledNumberInput from '../../components/StyledNumberInput/StyledNumberInput';
-import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
 
 const AddIncomeScreen = ({ navigation }) => {
-  const userInfo = useAppSelector(state => state).userInfo;
-  const [incomeName, setIncomeName] = useState(userInfo.income[0].name);
-  const [incomeAmount, setIncomeAmount] = useState(userInfo.income[0].amount);
-  const [incomeDate, setIncomeDate] = useState(
-    userInfo.income[0].dateOfPayment,
-  );
+  // const userInfo = useAppSelector(state => state).userInfo;
+  const [incomeName, setIncomeName] = useState('');
+  const [incomeAmount, setIncomeAmount] = useState('');
+  const [incomeDate, setIncomeDate] = useState('');
+
+  const handleSubmitData = async () => {
+    try {
+      await axios({
+        method: 'post',
+        url: `${Config.BASE_URL}/addIncome`,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        data: {
+          name: incomeName,
+          amount: incomeAmount,
+          dateOfPayment: incomeDate,
+        },
+      });
+    } catch (error) {
+      throw error;
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -24,10 +44,10 @@ const AddIncomeScreen = ({ navigation }) => {
         onChangeText={setIncomeName}
       />
       <StyledNumberInput
-        title={'Change income'}
+        title={'Add income'}
         passedValue={incomeAmount}
         setPassedValue={setIncomeAmount}
-        placeholder={userInfo.income[0].amount}
+        placeholder={''}
         unit={'£'}
       />
       <DateInput
@@ -40,11 +60,7 @@ const AddIncomeScreen = ({ navigation }) => {
         title={'Submit'}
         navigation={navigation}
         destination={'HomeScreen'}
-        data={{
-          incomeName: incomeName,
-          incomeAmount: incomeAmount,
-          incomeDate: incomeDate,
-        }}
+        onPress={handleSubmitData}
       />
     </View>
   );

@@ -15,7 +15,7 @@ import {
   PaymentDay,
   PaymentFrequency,
   addExpense,
-} from '../../features/addCapital/addCapitalSlice';
+} from '../../store/addCapital/addCapitalSlice';
 
 const AddExpenseScreen = ({ navigation }) => {
   const [expenseName, setExpenseName] = useState('');

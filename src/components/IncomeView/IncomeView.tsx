@@ -1,29 +1,47 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
+import Config from 'react-native-config';
 
 import styles from './styles';
 
 import { ButtonSmall } from '../';
-import { useAppSelector } from '../../features/app/hooks';
+import { useAppSelector } from '../../store/app/hooks';
 
 const IncomeView = ({ navigation }: any) => {
   const userInfo = useAppSelector(state => state).userInfo;
+  const [name, setName] = useState();
+  const [amount, setAmount] = useState();
+
+  const handleMainIncome = async () => {
+    const response = await axios({
+      method: 'get',
+      url: `${Config.BASE_URL}/getMainIncome`,
+    });
+    const income = response.data[0];
+
+    setName(income.name);
+    setAmount(income.amount);
+    return response;
+  };
+
+  useEffect(() => {
+    handleMainIncome();
+  }, []);
 
   return (
     <View style={styles.container}>
       <View style={styles.mainAccountContainer}>
-        <Text>
-          {userInfo.income[0].name} | {userInfo.income[0].dateOfPayment}
-        </Text>
-        <Text style={styles.mainValue}>£{userInfo.income[0].amount}</Text>
+        <Text>{name}</Text>
+        <Text style={styles.mainValue}>£{amount}</Text>
       </View>
       <View style={styles.actions}>
+        <ButtonSmall title={'Edit'} />
         <ButtonSmall
-          title={'Edit'}
+          title={'Add'}
           navigation={navigation}
           destination={'AddIncomeScreen'}
         />
-        <ButtonSmall title={'Add'} />
       </View>
     </View>
   );
