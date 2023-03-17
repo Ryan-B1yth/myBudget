@@ -16,7 +16,10 @@ interface Props {
 const BottomButton = ({ title, navigation, destination, onPress }: Props) => {
   // const dispatch = useAppDispatch();
 
-  const handleOnPress = () => onPress && onPress();
+  const handleOnPress = () => {
+    onPress && onPress();
+    navigation.navigate(destination);
+  };
 
   return (
     <View style={styles.container}>

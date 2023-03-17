@@ -9,7 +9,6 @@ import { ButtonSmall } from '../';
 import { useAppSelector } from '../../store/app/hooks';
 
 const IncomeView = ({ navigation }: any) => {
-  const userInfo = useAppSelector(state => state).userInfo;
   const [name, setName] = useState();
   const [amount, setAmount] = useState();
 

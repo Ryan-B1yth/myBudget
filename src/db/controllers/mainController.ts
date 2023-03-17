@@ -4,7 +4,6 @@ import { Income, User } from '../models/main';
 
 export const getMainIncome = async (req, res) => {
   const income = await Income.find().sort({ _id: -1 }).limit(1);
-  // console.log(income);
   res.send(income);
   return income;
 };
