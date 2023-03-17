@@ -1,3 +1,3 @@
-export { default as HomeScreen } from './Home/HomeScreen';
-export { default as AddIncomeScreen } from './AddIncome/AddIncomeScreen';
-export { default as AddExpenseScreen } from './AddExpense/AddExpenseScreen';
+export { HomeScreen } from './Home';
+export { AddIncomeScreen } from './AddIncome';
+export { AddExpenseScreen } from './AddExpense';

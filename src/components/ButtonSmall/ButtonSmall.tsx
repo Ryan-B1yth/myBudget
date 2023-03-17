@@ -7,9 +7,15 @@ interface Props {
   title: string;
   destination?: string;
   navigation?: any;
+  onPress?: () => void;
 }
 
-const ButtonSmall = ({ title, navigation, destination }: Props) => {
+const ButtonSmall = ({ title, navigation, destination, onPress }: Props) => {
+  const handleOnPress = () => {
+    onPress && onPress();
+    navigation.navigate(destination);
+  };
+
   return (
     <Pressable
       style={({ pressed }) =>
@@ -24,9 +30,7 @@ const ButtonSmall = ({ title, navigation, destination }: Props) => {
           <Text style={styles.btnSmallText}>{title}</Text>
         )
       }
-      onPress={() => {
-        destination ? navigation.navigate(destination) : null;
-      }}
+      onPress={handleOnPress}
     />
   );
 };

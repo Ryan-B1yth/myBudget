@@ -8,7 +8,6 @@ const Stack = createNativeStackNavigator();
 
 const Router = () => {
   return (
-    // <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen
         name={'HomeScreen'}
@@ -32,7 +31,6 @@ const Router = () => {
         }}
       />
     </Stack.Navigator>
-    // </NavigationContainer>
   );
 };
 

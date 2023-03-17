@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { Income, User } from '../models/main';
 
 export const getMainIncome = async (req, res) => {
-  const income = await Income.find().sort({ _id: -1 }).limit(1);
+  const income = await Income.find({ priority: true }).limit(1);
   res.send(income);
   return income;
 };

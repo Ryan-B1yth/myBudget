@@ -6,7 +6,6 @@ import Config from 'react-native-config';
 import styles from './styles';
 
 import { ButtonSmall } from '../';
-import { useAppSelector } from '../../store/app/hooks';
 
 const IncomeView = ({ navigation }: any) => {
   const [name, setName] = useState();
@@ -26,7 +25,7 @@ const IncomeView = ({ navigation }: any) => {
 
   useEffect(() => {
     handleMainIncome();
-  }, []);
+  });
 
   return (
     <View style={styles.container}>
@@ -35,7 +34,11 @@ const IncomeView = ({ navigation }: any) => {
         <Text style={styles.mainValue}>£{amount}</Text>
       </View>
       <View style={styles.actions}>
-        <ButtonSmall title={'Edit'} />
+        <ButtonSmall
+          title={'Edit'}
+          navigation={navigation}
+          destination={'EditIncomeScreen'}
+        />
         <ButtonSmall
           title={'Add'}
           navigation={navigation}

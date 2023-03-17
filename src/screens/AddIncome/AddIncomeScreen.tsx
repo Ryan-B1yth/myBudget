@@ -5,13 +5,13 @@ import Config from 'react-native-config';
 
 import styles from './styles';
 
+import { IncomeForm } from '../../components';
 import BottomButton from '../../components/BottomButton/BottomButton';
 import DateInput from '../../components/DateInput/DateInput';
 import StyledNumberInput from '../../components/StyledNumberInput/StyledNumberInput';
 import { useAppDispatch, useAppSelector } from '../../store/app/hooks';
 
 const AddIncomeScreen = ({ navigation }) => {
-  // const userInfo = useAppSelector(state => state).userInfo;
   const [incomeName, setIncomeName] = useState('');
   const [incomeAmount, setIncomeAmount] = useState('');
   const [incomeDate, setIncomeDate] = useState('');
@@ -37,32 +37,19 @@ const AddIncomeScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.mainTitle}
-        value={incomeName}
-        onChangeText={setIncomeName}
-      />
-      <StyledNumberInput
-        title={'Add income'}
-        passedValue={incomeAmount}
-        setPassedValue={setIncomeAmount}
-        placeholder={''}
-        unit={'£'}
-      />
-      <DateInput
-        title={'Select date'}
-        passedValue={incomeDate}
-        setPassedValue={setIncomeDate}
-        placeholder={31}
-      />
-      <BottomButton
-        title={'Submit'}
-        navigation={navigation}
-        destination={'HomeScreen'}
-        onPress={handleSubmitData}
-      />
-    </View>
+    <IncomeForm
+      handleSubmitData={handleSubmitData}
+      incomeAmount={incomeAmount}
+      incomeDate={incomeDate}
+      incomeName={incomeName}
+      setIncomeAmount={setIncomeAmount}
+      setIncomeDate={setIncomeDate}
+      setIncomeName={setIncomeName}
+      navigation={navigation}
+      title={'Income Name'}
+      amountPlaceHolder={'XXXX'}
+      datePlaceHolder={'31'}
+    />
   );
 };
 

@@ -89,6 +89,10 @@ const changeInCapitalSchema = new Schema(
         ref: 'User',
       },
     ],
+    priority: {
+      type: Boolean,
+      default: false,
+    },
     name: {
       type: String,
     },

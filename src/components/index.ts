@@ -7,3 +7,4 @@ export { HorizontalView } from './HorizontalView';
 export { IncomeView } from './IncomeView';
 export { SelectBox } from './SelectBox';
 export { StyledNumberInput } from './StyledNumberInput';
+export { IncomeForm } from './IncomeForm';
